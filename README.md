@@ -1,5 +1,3 @@
-Forked
-
 <a href="https://github.com/Requarks/wiki">
     <img src="https://raw.githubusercontent.com/Requarks/wiki/master/assets/favicons/favicon-96x96.png" alt="Wiki.js" title="Wiki.js" align="right" />
 </a>
