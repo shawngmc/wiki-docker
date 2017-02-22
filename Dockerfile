@@ -20,8 +20,8 @@ ADD mongodb.yml /etc/service/monogodb/mongodb.yml
 # Install Node.js
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 RUN export NVM_DIR="$HOME/nvm"
-RUN nvm install node
-RUN nvm use node
+RUN ./nvm install node
+RUN ./nvm use node
 RUN npm install -g node-gyp
 
 # Install Wiki.js
