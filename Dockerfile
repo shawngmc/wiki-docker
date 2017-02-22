@@ -31,8 +31,9 @@ ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 # Install Wiki.js
 RUN mkdir -p /var/www/wiki
 WORKDIR /var/www/wiki
-RUN which npm
-RUN npm install --verbose wiki.js@latest
+RUN . $NVM_DIR/nvm.sh \
+    && nvm use node \
+    && npm install --verbose wiki.js@latest
 
 # Install WikiJS Phusion Daemon
 RUN mkdir /etc/service/wikijs
