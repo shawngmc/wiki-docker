@@ -12,6 +12,11 @@ RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mon
 RUN apt-get update
 RUN apt-get install -y mongodb-org
 
+# Install MongoDB Phusion Daemon
+RUN mkdir /etc/service/mongodb
+ADD mongodb.sh /etc/service/mongodb/run
+ADD mongodb.yml /etc/service/monogodb/mongodb.yml
+
 # Install Node.js
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 RUN source ~/.profile
@@ -24,6 +29,10 @@ RUN mkdir /var/www/wiki
 WORKDIR /var/www/wiki
 RUN npm install wiki.js@latest
 
+# Install WikiJS Phusion Daemon
+RUN mkdir /etc/service/wikijs
+ADD wikijs.sh /etc/service/wikijs/run
+
 EXPOSE 80
 
-CMD["/usr/bin/mongod"]
+CMD["/sbin/my.init"]
