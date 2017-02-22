@@ -35,4 +35,4 @@ ADD wikijs.sh /etc/service/wikijs/run
 
 EXPOSE 80
 
-CMD["/sbin/my_init"]
+CMD ["/sbin/my_init"]
