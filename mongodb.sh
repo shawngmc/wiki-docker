@@ -7,4 +7,4 @@ set -eo pipefail
 chown -R mongodb:mongodb $DATA_DIR
 chmod -R 700 $DATA_DIR
 
-exec mongod --config /etc/mongodb/mongodb.yml
+exec mongod
