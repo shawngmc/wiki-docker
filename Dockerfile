@@ -19,6 +19,7 @@ ADD mongodb.yml /etc/service/monogodb/mongodb.yml
 
 # Install NVM/Node/NPM/LocalCompile
 ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 7.5.0
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
     && nvm install node \
