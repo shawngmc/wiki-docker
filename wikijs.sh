@@ -1,3 +1,3 @@
 #!/bin/sh
-cd /var/html/wiki/
+cd /var/www/wiki/
 exec /sbin/setuser wikijs node wiki start
