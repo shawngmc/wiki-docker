@@ -17,12 +17,15 @@ RUN mkdir /etc/service/mongodb
 ADD mongodb.sh /etc/service/mongodb/run
 ADD mongodb.yml /etc/service/monogodb/mongodb.yml
 
-# Install Node.js
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-RUN export NVM_DIR="$HOME/nvm"
-RUN ./nvm install node
-RUN ./nvm use node
-RUN npm install -g node-gyp
+# Install NVM/Node/NPM/LocalCompile
+ENV NVM_DIR /usr/local/nvm
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash \
+    && export NVM_DIR="$HOME/nvm"
+    && nvm install node
+    && nvm use node
+    && npm install -g node-gyp
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 # Install Wiki.js
 RUN mkdir /var/www/wiki
