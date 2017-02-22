@@ -18,27 +18,27 @@ ADD mongodb.sh /etc/service/mongodb/run
 ADD mongodb.yml /etc/service/monogodb/mongodb.yml
 
 # Install NVM/Node/NPM/LocalCompile
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 7.5.0
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install node \
-    && nvm use node \
-    && npm install -g node-gyp
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+#ENV NVM_DIR /usr/local/nvm
+#ENV NODE_VERSION 7.5.0
+#RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash \
+#    && . $NVM_DIR/nvm.sh \
+#    && nvm install node \
+#    && nvm use node \
+#    && npm install -g node-gyp
+#ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+#ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 # Install Wiki.js
-RUN mkdir -p /var/www/wiki
-WORKDIR /var/www/wiki
-RUN . $NVM_DIR/nvm.sh \
-    && nvm use node \
-    && npm install --verbose wiki.js@latest \
-    && node wiki -V
+#RUN mkdir -p /var/www/wiki
+#WORKDIR /var/www/wiki
+#RUN . $NVM_DIR/nvm.sh \
+#    && nvm use node \
+#    && npm install --verbose wiki.js@latest \
+#    && node wiki -V
 
 # Install WikiJS Phusion Daemon
-RUN mkdir /etc/service/wikijs
-ADD wikijs.sh /etc/service/wikijs/run
+#RUN mkdir /etc/service/wikijs
+#ADD wikijs.sh /etc/service/wikijs/run
 
 EXPOSE 80
 
