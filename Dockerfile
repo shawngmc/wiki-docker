@@ -15,7 +15,7 @@ RUN apt-get install -y mongodb-org
 # Install MongoDB Phusion Daemon
 RUN mkdir /etc/service/mongodb
 ADD mongodb.sh /etc/service/mongodb/run
-ADD mongodb.yml /etc/service/monogodb/mongodb.yml
+ADD mongodb.yml /etc/service/mongodb/mongodb.yml
 
 # Install NVM/Node/NPM/LocalCompile
 #ENV NVM_DIR /usr/local/nvm
