@@ -34,10 +34,11 @@ RUN . $NVM_DIR/nvm.sh \
     && nvm use node \
     && npm install --verbose wiki.js@latest \
     && node wiki -V
+    && node wiki start
 
 # Install WikiJS Phusion Daemon
-RUN mkdir /etc/service/wikijs
-ADD wikijs.sh /etc/service/wikijs/run
+#RUN mkdir /etc/service/wikijs
+#ADD wikijs.sh /etc/service/wikijs/run
 
 EXPOSE 80
 
