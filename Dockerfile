@@ -33,7 +33,7 @@ WORKDIR /var/www/wiki
 RUN . $NVM_DIR/nvm.sh \
     && nvm use node \
     && npm install --verbose wiki.js@latest \
-    && node wiki -V
+    && node wiki -V \
     && node wiki start
 
 # Install WikiJS Phusion Daemon
